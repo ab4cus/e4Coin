@@ -1,0 +1,9 @@
+prefix=/e4coin/e4coin-0.3.1.0/depends/x86_64-pc-linux-gnu
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+ 
+Name: XExtProto
+Description: XExt extension headers
+Version: 7.3.0
+Cflags: -I${includedir}

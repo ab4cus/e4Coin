@@ -1,0 +1,92 @@
+#!/sbin/runscript
+
+# backward compatibility for existing gentoo layout 
+#
+if [ -d "/var/lib/e4coincore/.e4coincore" ]; then
+	E4COIND_DEFAULT_DATADIR="/var/lib/e4coincore/.e4coincore"
+else
+	E4COIND_DEFAULT_DATADIR="/var/lib/e4coind"
+fi
+
+E4COIND_CONFIGFILE=${E4COIND_CONFIGFILE:-/etc/e4coincore/e4coin.conf}
+E4COIND_PIDDIR=${E4COIND_PIDDIR:-/var/run/e4coind}
+E4COIND_PIDFILE=${E4COIND_PIDFILE:-${E4COIND_PIDDIR}/e4coind.pid}
+E4COIND_DATADIR=${E4COIND_DATADIR:-${E4COIND_DEFAULT_DATADIR}}
+E4COIND_USER=${E4COIND_USER:-${E4COIN_USER:-e4coincore}}
+E4COIND_GROUP=${E4COIND_GROUP:-e4coincore}
+E4COIND_BIN=${E4COIND_BIN:-/usr/bin/e4coind}
+E4COIND_NICE=${E4COIND_NICE:-${NICELEVEL:-0}}
+E4COIND_OPTS="${E4COIND_OPTS:-${E4COIN_OPTS}}"
+
+name="e4Coin Core Daemon"
+description="e4Coin cryptocurrency P2P network daemon"
+
+command="/usr/bin/e4coind"
+command_args="-pid=\"${E4COIND_PIDFILE}\" \
+		-conf=\"${E4COIND_CONFIGFILE}\" \
+		-datadir=\"${E4COIND_DATADIR}\" \
+		-daemon \
+		${E4COIND_OPTS}"
+
+required_files="${E4COIND_CONFIGFILE}"
+start_stop_daemon_args="-u ${E4COIND_USER} \
+			-N ${E4COIND_NICE} -w 2000"
+pidfile="${E4COIND_PIDFILE}"
+
+# The retry schedule to use when stopping the daemon. Could be either
+# a timeout in seconds or multiple signal/timeout pairs (like
+# "SIGKILL/180 SIGTERM/300")
+retry="${E4COIND_SIGTERM_TIMEOUT}"
+
+depend() {
+	need localmount net
+}
+
+# verify
+# 1) that the datadir exists and is writable (or create it)
+# 2) that a directory for the pid exists and is writable
+# 3) ownership and permissions on the config file
+start_pre() {
+	checkpath \
+	-d \
+	--mode 0750 \
+	--owner "${E4COIND_USER}:${E4COIND_GROUP}" \
+	"${E4COIND_DATADIR}"
+
+	checkpath \
+	-d \
+	--mode 0755 \
+	--owner "${E4COIND_USER}:${E4COIND_GROUP}" \
+	"${E4COIND_PIDDIR}"
+
+	checkpath -f \
+	-o ${E4COIND_USER}:${E4COIND_GROUP} \
+	-m 0660 \
+	${E4COIND_CONFIGFILE}
+
+	checkconfig || return 1
+}
+
+checkconfig()
+{
+	if ! grep -qs '^rpcpassword=' "${E4COIND_CONFIGFILE}" ; then
+		eerror ""
+		eerror "ERROR: You must set a secure rpcpassword to run e4coind."
+		eerror "The setting must appear in ${E4COIND_CONFIGFILE}"
+		eerror ""
+		eerror "This password is security critical to securing wallets "
+		eerror "and must not be the same as the rpcuser setting."
+		eerror "You can generate a suitable random password using the following"
+		eerror "command from the shell:"
+		eerror ""
+		eerror "bash -c 'tr -dc a-zA-Z0-9 < /dev/urandom | head -c32 && echo'"
+		eerror ""
+		eerror "It is also recommended that you also set alertnotify so you are "
+		eerror "notified of problems:"
+		eerror ""
+		eerror "ie: alertnotify=echo %%s | mail -s \"e4Coin Core Alert\"" \
+			"admin@foo.com"
+		eerror ""
+		return 1
+	fi
+}

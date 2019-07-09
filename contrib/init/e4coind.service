@@ -1,0 +1,22 @@
+[Unit]
+Description=e4Coin's distributed currency daemon
+After=network.target
+
+[Service]
+User=e4coincore
+Group=e4coincore
+
+Type=forking
+PIDFile=/var/lib/e4coind/e4coind.pid
+ExecStart=/usr/bin/e4coind -daemon -pid=/var/lib/e4coind/e4coind.pid \
+-conf=/etc/e4coincore/e4coin.conf -datadir=/var/lib/e4coind -disablewallet
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

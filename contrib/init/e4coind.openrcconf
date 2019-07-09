@@ -1,0 +1,33 @@
+# /etc/conf.d/e4coind: config file for /etc/init.d/e4coind
+
+# Config file location
+#E4COIND_CONFIGFILE="/etc/e4coincore/e4coin.conf"
+
+# What directory to write pidfile to?  (created and owned by $E4COIND_USER)
+#E4COIND_PIDDIR="/var/run/e4coind"
+
+# What filename to give the pidfile
+#E4COIND_PIDFILE="${E4COIND_PIDDIR}/e4coind.pid"
+
+# Where to write e4coind data (be mindful that the blockchain is large)
+#E4COIND_DATADIR="/var/lib/e4coind"
+
+# User and group to own e4coind process
+#E4COIND_USER="e4coincore"
+#E4COIND_GROUP="e4coincore"
+
+# Path to e4coind executable
+#E4COIND_BIN="/usr/bin/e4coind"
+
+# Nice value to run e4coind under
+#E4COIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+#E4COIND_OPTS=""
+
+# The timeout in seconds OpenRC will wait for bitcoind to terminate
+# after a SIGTERM has been raised.
+# Note that this will be mapped as argument to start-stop-daemon's
+# '--retry' option, which means you can specify a retry schedule
+# here. For more information see man 8 start-stop-daemon.
+E4COIND_SIGTERM_TIMEOUT=60

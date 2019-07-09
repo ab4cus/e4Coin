@@ -1,0 +1,11 @@
+prefix=/e4coin/e4coin-0.3.1.0/depends/x86_64-pc-linux-gnu
+exec_prefix=${prefix}
+datarootdir=${prefix}/share
+datadir=${datarootdir}
+libdir=${exec_prefix}/lib
+xcbincludedir=${datadir}/xcb
+pythondir=${prefix}/lib/python3.5/site-packages
+
+Name: XCB Proto
+Description: X protocol descriptions for XCB
+Version: 1.10
