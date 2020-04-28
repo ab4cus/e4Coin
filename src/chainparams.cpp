@@ -354,8 +354,9 @@ public:
         fBIP9CheckMasternodesUpgraded = true;
 
         checkpointData = (CCheckpointData) {
-            boost::assign::map_list_of
-            (  0, uint256S("0x0000020e892e817484ad2504cd56458438999cadf3e4fcf4aa366e645e3fbe82"))
+            {{},}
+            //boost::assign::map_list_of
+            //(  0, uint256S("0x0000020e892e817484ad2504cd56458438999cadf3e4fcf4aa366e645e3fbe82"))
         };
 
         chainTxData = ChainTxData{
@@ -527,8 +528,9 @@ public:
         fBIP9CheckMasternodesUpgraded = true;
 
         checkpointData = (CCheckpointData) {
-            boost::assign::map_list_of
-            (    0, uint256S("0x000002d625085fced241c3e7c1fccb8985ed61aafd7b572e2423acf27632ed6b"))
+            {{},}
+            //boost::assign::map_list_of
+            //(    0, uint256S("0x000002d625085fced241c3e7c1fccb8985ed61aafd7b572e2423acf27632ed6b"))
         };
 
         chainTxData = ChainTxData{
@@ -702,9 +704,10 @@ public:
         fBIP9CheckMasternodesUpgraded = false;
 
         checkpointData = (CCheckpointData) {
-            boost::assign::map_list_of
-            (      0, uint256S("0x379defbb2e87c795422233e3ae323b35b907191fb69e09141922d4bd5adcc757"))
-            (      1, devnetGenesis.GetHash())
+            {{},}
+            //boost::assign::map_list_of
+            //(      0, uint256S("0x379defbb2e87c795422233e3ae323b35b907191fb69e09141922d4bd5adcc757"))
+            //(      1, devnetGenesis.GetHash())
         };
 
         chainTxData = ChainTxData{
@@ -847,8 +850,9 @@ public:
         fBIP9CheckMasternodesUpgraded = false;
 
         checkpointData = (CCheckpointData){
-            boost::assign::map_list_of
-            ( 0, uint256S("0x379defbb2e87c795422233e3ae323b35b907191fb69e09141922d4bd5adcc757"))
+            {{},}
+            //boost::assign::map_list_of
+            //( 0, uint256S("0x379defbb2e87c795422233e3ae323b35b907191fb69e09141922d4bd5adcc757"))
         };
 
         chainTxData = ChainTxData{
