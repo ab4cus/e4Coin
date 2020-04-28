@@ -15,8 +15,9 @@ RUN apt-get update && apt-get install -y python3-pip
 # Python stuff
 RUN pip3 install pyzmq # really needed?
 
-# e4coin_hash
-RUN git clone https://github.com/e4coinpay/e4coin_hash
+# e4coin_hash 
+#RUN git clone https://github.com/dashpay/dash_hash
+RUN git clone https://github.com/e4cash/e4Coin
 RUN cd e4coin_hash && python3 setup.py install
 
 ARG USER_ID=1000
