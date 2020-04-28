@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=e4Coin Core
+Comment=e4Coin P2P Cryptocurrency
+Comment[de]=Verbinde mit dem e4Coin peer-to-peer Netzwerk
+Comment[fr]=e4Coin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=e4Coin, eşten eşe kriptografik sanal para birimi
+Exec=e4coin-qt %u
+Terminal=false
+Type=Application
+Icon=e4coin128
+MimeType=x-scheme-handler/e4coin;
+Categories=Office;Finance;

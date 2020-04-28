@@ -1,0 +1,11 @@
+[Protocol]
+exec=e4coin-qt '%u'
+protocol=e4coin
+input=none
+output=none
+helper=true
+listing=
+reading=false
+writing=false
+makedir=false
+deleting=false
