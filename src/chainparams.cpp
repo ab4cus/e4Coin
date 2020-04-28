@@ -280,12 +280,12 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 32-bit integer with any alignment.
          */
-        pchMessageStart[0] = 0x46;
-        pchMessageStart[1] = 0x85;
-        pchMessageStart[2] = 0x7a;
-        pchMessageStart[3] = 0x41;
+        pchMessageStart[0] = 0x64;
+        pchMessageStart[1] = 0x34;
+        pchMessageStart[2] = 0x43;
+        pchMessageStart[3] = 0x6E;
         vAlertPubKey = ParseHex("046733862c5adc00f6ffb0647b19ffee7f29dbddf975093c052c90249db1e5b0b1c099f85b05d1f88d11043039e41a3364d03f167eba75d4c0fb1c5c8080335977");
-        nDefaultPort = 15732;
+        nDefaultPort = 7431;
         nPruneAfterHeight = 100000;
 
         genesis = CreateGenesisBlock(1579890311, 286737, 0x1e0ffff0, 1, 500 * COIN);
@@ -313,7 +313,6 @@ public:
         }
         assert(consensus.hashGenesisBlock == uint256S("0x0000020e892e817484ad2504cd56458438999cadf3e4fcf4aa366e645e3fbe82"));
         assert(genesis.hashMerkleRoot == uint256S("0xb9f9c0419783bd81a113b117cd5d38dcd2048dd5c31690076d3b82890abe6ffc"));
-
 
         vSeeds.push_back(CDNSSeedData("e4coin.io", "dnsseed.e4coin.io"));
         vSeeds.push_back(CDNSSeedData("e4cash.net", "dnsseed.e4cash.net"));
@@ -453,12 +452,12 @@ public:
         // By default assume that the signatures in ancestors of this block are valid.
         consensus.defaultAssumeValid = uint256S("0x000002d625085fced241c3e7c1fccb8985ed61aafd7b572e2423acf27632ed6b"); 
 
-        pchMessageStart[0] = 0x38;
-        pchMessageStart[1] = 0x2e;
-        pchMessageStart[2] = 0x31;
-        pchMessageStart[3] = 0xd4;
+        pchMessageStart[0] = 0x45;
+        pchMessageStart[1] = 0x34;
+        pchMessageStart[2] = 0xb6;
+        pchMessageStart[3] = 0x4E;
         vAlertPubKey = ParseHex("04415b3e068d8d65ef1d3fad23952a95afd3cf34be936a353ded30ba579125b0af0ab6f143e07da64b262215a27df11fa6cd4f62ea0185a21d3588a4819485b111");
-        nDefaultPort = 25732;
+        nDefaultPort = 17431;
         nPruneAfterHeight = 1000;
 
         genesis = CreateGenesisBlock(1579890316UL, 664525UL, 0x1e0ffff0, 1, 500 * COIN);
@@ -626,12 +625,12 @@ public:
         // By default assume that the signatures in ancestors of this block are valid.
         consensus.defaultAssumeValid = uint256S("0x000000000000000000000000000000000000000000000000000000000000000");
 
-        pchMessageStart[0] = 0xbc;
-        pchMessageStart[1] = 0x89;
-        pchMessageStart[2] = 0x86;
-        pchMessageStart[3] = 0xa2;
+        pchMessageStart[0] = 0x45;
+        pchMessageStart[1] = 0x34;
+        pchMessageStart[2] = 0xb6;
+        pchMessageStart[3] = 0x4E;
         vAlertPubKey = ParseHex("04415b3e068d8d65ef1d3fad23952a95afd3cf34be936a353ded30ba579125b0af0ab6f143e07da64b262215a27df11fa6cd4f62ea0185a21d3588a4819485b111");
-        nDefaultPort = 25732;
+        nDefaultPort = 17431;
         nPruneAfterHeight = 1000;
 
         genesis = CreateGenesisBlock(1579890321, 0, 0x207fffff, 1, 500 * COIN);
@@ -795,11 +794,11 @@ public:
         // By default assume that the signatures in ancestors of this block are valid.
         consensus.defaultAssumeValid = uint256S("0x00");
 
-        pchMessageStart[0] = 0xfc;
-        pchMessageStart[1] = 0xc1;
-        pchMessageStart[2] = 0xb7;
-        pchMessageStart[3] = 0xdc;
-        nDefaultPort = 19994;
+        pchMessageStart[0] = 0x24;
+        pchMessageStart[1] = 0x64;
+        pchMessageStart[2] = 0x34;
+        pchMessageStart[3] = 0x43;
+        nDefaultPort = 27431;
         nPruneAfterHeight = 1000;
 
         genesis = CreateGenesisBlock(1579890321, 0, 0x207fffff, 1, 500 * COIN);

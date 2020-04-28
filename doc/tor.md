@@ -52,11 +52,11 @@ reachable from the Tor network. Add these lines to your /etc/tor/torrc (or equiv
 config file):
 
 	HiddenServiceDir /var/lib/tor/e4coincore-service/
-	HiddenServicePort 15732 127.0.0.1:15732
-	HiddenServicePort 25732 127.0.0.1:25732
+	HiddenServicePort 7431 127.0.0.1:7431
+	HiddenServicePort 17431 127.0.0.1:17431
 
 The directory can be different of course, but (both) port numbers should be equal to
-your e4coind's P2P listen port (15732 by default).
+your e4coind's P2P listen port (7431 by default).
 
 	-externalip=X   You can tell e4Coin Core about its publicly reachable address using
 	                this option, and this can be a .onion address. Given the above
@@ -91,7 +91,7 @@ as well, use `discover` instead:
 
 	./e4coind ... -discover
 
-and open port 15732 on your firewall (or use -upnp).
+and open port 7431 on your firewall (or use -upnp).
 
 If you only want to use Tor to reach onion addresses, but not use it as a proxy
 for normal IPv4/IPv6 communication, use:
