@@ -314,8 +314,8 @@ public:
         assert(consensus.hashGenesisBlock == uint256S("0x0000020e892e817484ad2504cd56458438999cadf3e4fcf4aa366e645e3fbe82"));
         assert(genesis.hashMerkleRoot == uint256S("0xb9f9c0419783bd81a113b117cd5d38dcd2048dd5c31690076d3b82890abe6ffc"));
 
-        vSeeds.push_back(CDNSSeedData("e4coin.io", "dnsseed.e4coin.io"));
-        vSeeds.push_back(CDNSSeedData("e4cash.net", "dnsseed.e4cash.net"));
+        //vSeeds.push_back(CDNSSeedData("e4coin.io", "dnsseed.e4coin.io"));
+        //vSeeds.push_back(CDNSSeedData("e4cash.net", "dnsseed.e4cash.net"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,33);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,34);
@@ -664,7 +664,7 @@ public:
 
         vFixedSeeds.clear();
         vSeeds.clear();
-        //vSeeds.push_back(CDNSSeedData("e4coinevo.org",  "devnet-seed.e4coinevo.org"));
+        //vSeeds.push_back(CDNSSeedData("e4coin.io",  "devnet-seed.e4coin.io"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,8);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,9);
