@@ -78,7 +78,7 @@ static CBlock CreateDevNetGenesisBlock(const uint256 &prevBlockHash, const std::
  */
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "PMorgan Chase Moves to Be First Big U.S. Bank With Its Own";
+    const char* pszTimestamp = "The Times 14/Feb/2019 JPMorgan Chase Moves to Be First Big U.S. Bank With Its Own Cryptocurrency";
     const CScript genesisOutputScript = CScript() << ParseHex("04ec346dde25ee156594991416b3babb5c167629d1d78b83a46c7fe743e46b2d8028d6869cb1169d58834ec79b4d497386a7e003988f276c2f157eb078378fe264") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
