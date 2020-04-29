@@ -22,7 +22,7 @@ QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
     unitlist.append(E4CN);
     unitlist.append(mE4CN);
     unitlist.append(uE4CN);
-    unitlist.append(real);
+    unitlist.append(puya);
     return unitlist;
 }
 
@@ -33,7 +33,7 @@ bool BitcoinUnits::valid(int unit)
     case E4CN:
     case mE4CN:
     case uE4CN:
-    case real:
+    case puya:
         return true;
     default:
         return false;
@@ -47,9 +47,9 @@ QString BitcoinUnits::name(int unit)
         switch(unit)
         {
             case E4CN: return QString("E4CN");
-            case mE4CN: return QString("mE4CN");
-            case uE4CN: return QString::fromUtf8("μE4CN");
-            case real: return QString("real");
+            case mE4CN: return QString("Real");
+            case uE4CN: return QString("Locha");
+            case puya: return QString("Puya");
             default: return QString("???");
         }
     }
@@ -58,9 +58,9 @@ QString BitcoinUnits::name(int unit)
         switch(unit)
         {
             case E4CN: return QString("tE4CN");
-            case mE4CN: return QString("mtE4CN");
-            case uE4CN: return QString::fromUtf8("μtE4CN");
-            case real: return QString("treal");
+            case mE4CN: return QString("tReal");
+            case uE4CN: return QString("tLocha");
+            case puya: return QString("tPuya");
             default: return QString("???");
         }
     }
@@ -72,10 +72,10 @@ QString BitcoinUnits::description(int unit)
     {
         switch(unit)
         {
-            case E4CN: return QString("e4Coin");
-            case mE4CN: return QString("Milli-e4Coin (1 / 1" THIN_SP_UTF8 "000)");
-            case uE4CN: return QString("Micro-e4Coin (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
-            case real: return QString("Ten Nano-e4Coin (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case E4CN: return QString("e4Coins");
+            case mE4CN: return QString("Milli-e4Coin - Real (1 / 1" THIN_SP_UTF8 "000)");
+            case uE4CN: return QString("Micro-e4Coin - Locha (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case puya: return QString("Ten Nano-e4Coin - Puya (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
             default: return QString("???");
         }
     }
@@ -83,10 +83,10 @@ QString BitcoinUnits::description(int unit)
     {
         switch(unit)
         {
-            case E4CN: return QString("Teste4Coins");
-            case mE4CN: return QString("Milli-Teste4Coin (1 / 1" THIN_SP_UTF8 "000)");
-            case uE4CN: return QString("Micro-Teste4Coin (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
-            case real: return QString("Ten Nano-Teste4Coin (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case E4CN: return QString("Test-e4Coins");
+            case mE4CN: return QString("Milli-Test-e4Coin (1 / 1" THIN_SP_UTF8 "000)");
+            case uE4CN: return QString("Micro-Test-e4Coin (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case puya: return QString("Ten Nano-Test-e4Coin (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
             default: return QString("???");
         }
     }
@@ -99,7 +99,7 @@ qint64 BitcoinUnits::factor(int unit)
     case E4CN:  return 100000000;
     case mE4CN: return 100000;
     case uE4CN: return 100;
-    case real: return 1;
+    case puya: return 1;
     default:   return 100000000;
     }
 }
@@ -111,7 +111,7 @@ int BitcoinUnits::decimals(int unit)
     case E4CN: return 8;
     case mE4CN: return 5;
     case uE4CN: return 2;
-    case real: return 0;
+    case puya: return 0;
     default: return 0;
     }
 }

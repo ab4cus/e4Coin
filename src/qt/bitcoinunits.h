@@ -60,7 +60,7 @@ public:
         E4CN,
         mE4CN,
         uE4CN,
-        real
+        puya
     };
 
     enum SeparatorStyle
