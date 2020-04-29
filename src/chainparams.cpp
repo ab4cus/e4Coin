@@ -224,8 +224,8 @@ public:
         consensus.DIP0003EnforcementHeight = 2;
         consensus.DIP0003EnforcementHash = uint256();
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~uint256(0) >> 20
-        consensus.nPowTargetTimespan = 4 * 60;
-        consensus.nPowTargetSpacing = 1 * 60;
+        consensus.nPowTargetTimespan = 24 * 60 * 60; // e4Coin: 1 dia
+        consensus.nPowTargetSpacing = 0.8 * 60; // e4Coin : 0.8 minutos (48 segundos)
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
         consensus.nPowKGWHeight = 1;
@@ -316,6 +316,7 @@ public:
 
         //vSeeds.push_back(CDNSSeedData("e4coin.io", "dnsseed.e4coin.io"));
         //vSeeds.push_back(CDNSSeedData("e4cash.net", "dnsseed.e4cash.net"));
+        //vSeeds.push_back(CDNSSeedData("altcoinspools.net", "dnsseed01.altcoinspools.net"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,33);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,34);
@@ -403,8 +404,8 @@ public:
         consensus.DIP0003EnforcementHeight = 2;
         consensus.DIP0003EnforcementHash = uint256();
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~uint256(0) >> 20
-        consensus.nPowTargetTimespan = 4 * 60;
-        consensus.nPowTargetSpacing = 1 * 60;
+        consensus.nPowTargetTimespan = 24 * 60 * 60; // e4Coin: 1 dia
+        consensus.nPowTargetSpacing = 0.8 * 60; // e4Coin : 0.8 minutos (48 segundos)
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = false;
         consensus.nPowKGWHeight = 1; // nPowKGWHeight >= nPowDGWHeight means "no KGW"
@@ -578,8 +579,8 @@ public:
         consensus.DIP0003EnforcementHeight = 2; // DIP0003 activated immediately on devnet
         consensus.DIP0003EnforcementHash = uint256();
         consensus.powLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~uint256(0) >> 1
-        consensus.nPowTargetTimespan = 4 * 60;
-        consensus.nPowTargetSpacing = 1 * 60;
+        consensus.nPowTargetTimespan = 24 * 60 * 60; // e4Coin: 1 dia
+        consensus.nPowTargetSpacing = 0.8 * 60; // e4Coin : 0.8 minutos (48 segundos)
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = false;
         consensus.nPowKGWHeight = 4001; // nPowKGWHeight >= nPowDGWHeight means "no KGW"
@@ -767,8 +768,8 @@ public:
         consensus.DIP0003EnforcementHeight = 500;
         consensus.DIP0003EnforcementHash = uint256();
         consensus.powLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~uint256(0) >> 1
-        consensus.nPowTargetTimespan = 4 * 60;
-        consensus.nPowTargetSpacing = 1 * 60;
+        consensus.nPowTargetTimespan = 24 * 60 * 60; // e4Coin: 1 dia
+        consensus.nPowTargetSpacing = 0.8 * 60; // e4Coin : 0.8 minutos (48 segundos)
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = true;
         consensus.nPowKGWHeight = 1; // same as mainnet
