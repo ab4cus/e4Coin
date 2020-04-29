@@ -18,7 +18,7 @@ const std::string CLIENT_NAME("e4Coin Core");
 /**
  * Client version number
  */
-#define CLIENT_VERSION_SUFFIX ""
+#define CLIENT_VERSION_SUFFIX "-beta"
 
 
 /**
