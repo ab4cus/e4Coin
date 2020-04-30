@@ -79,7 +79,7 @@ static CBlock CreateDevNetGenesisBlock(const uint256 &prevBlockHash, const std::
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
     const char* pszTimestamp = "The Times 14/Feb/2019 JPMorgan Chase Moves to Be First Big U.S. Bank With Its Own Cryptocurrency";
-    const CScript genesisOutputScript = CScript() << ParseHex("04ec346dde25ee156594991416b3babb5c167629d1d78b83a46c7fe743e46b2d8028d6869cb1169d58834ec79b4d497386a7e003988f276c2f157eb078378fe264") << OP_CHECKSIG;
+    const CScript genesisOutputScript = CScript() << ParseHex("04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
 
@@ -288,7 +288,8 @@ public:
         nDefaultPort = 7431;
         nPruneAfterHeight = 100000;
 
-        genesis = CreateGenesisBlock(1579890311, 286737, 0x1e0ffff0, 1, 10 * COIN);
+        //genesis = CreateGenesisBlock(1579890311, 286737, 0x1e0ffff0, 1, 10 * COIN);
+        genesis = CreateGenesisBlock(1579890321, 333771, 0x1e0ffff0, 1, 10 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
         // calculate main genesis block
         //consensus.hashGenesisBlock = uint256S("0x00");
@@ -311,8 +312,18 @@ public:
             std::cout << "blockhash: " << genesis.GetHash().ToString().c_str() << "\n";
             std::cout << "merklehash: " << genesis.hashMerkleRoot.ToString().c_str() << "\n";
         }
-        assert(consensus.hashGenesisBlock == uint256S("0x0000020e892e817484ad2504cd56458438999cadf3e4fcf4aa366e645e3fbe82"));
-        assert(genesis.hashMerkleRoot == uint256S("0xb9f9c0419783bd81a113b117cd5d38dcd2048dd5c31690076d3b82890abe6ffc"));
+        //assert(consensus.hashGenesisBlock == uint256S("0x0000020e892e817484ad2504cd56458438999cadf3e4fcf4aa366e645e3fbe82"));
+        assert(consensus.hashGenesisBlock == uint256S("0x0000015f49c959686c8e6b2c0c70dc2d0203d0ba08cccd3aeacb498b0d84e9c6"));
+        //assert(genesis.hashMerkleRoot == uint256S("0xb9f9c0419783bd81a113b117cd5d38dcd2048dd5c31690076d3b82890abe6ffc"));
+        assert(genesis.hashMerkleRoot == uint256S("05b236ecb2aee46969e19166f39706850e4d02ccfc6fd1f9962b58888e9e8019"));
+
+        // print hash merkle
+        printf ("e4Coin main hashMerkleRoot:% s \ n",
+            genesis.hashMerkleRoot.ToString (). c_str ());
+
+        // print hash genesis
+        printf ("e4Coin main hashGenesisBlock: % s \ n",
+            consensus.hashGenesisBlock.ToString (). c_str ());
 
         //vSeeds.push_back(CDNSSeedData("e4coin.io", "dnsseed.e4coin.io"));
         //vSeeds.push_back(CDNSSeedData("e4cash.net", "dnsseed.e4cash.net"));
@@ -463,7 +474,8 @@ public:
         nDefaultPort = 17431;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1579890316UL, 664525UL, 0x1e0ffff0, 1, 10 * COIN);
+        //genesis = CreateGenesisBlock(1579890316UL, 664525UL, 0x1e0ffff0, 1, 10 * COIN);
+        genesis = CreateGenesisBlock(1579890321, 333771, 0x1e0ffff0, 1, 10 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
         // calculate testnet genesis block
         //consensus.hashGenesisBlock = uint256S("0x00");
@@ -486,8 +498,18 @@ public:
             std::cout << "blockhash: " << genesis.GetHash().ToString().c_str() << "\n";
             std::cout << "merklehash: " << genesis.hashMerkleRoot.ToString().c_str() << "\n";
         }
-        assert(consensus.hashGenesisBlock == uint256S("0x000002d625085fced241c3e7c1fccb8985ed61aafd7b572e2423acf27632ed6b"));
-        assert(genesis.hashMerkleRoot == uint256S("0xb9f9c0419783bd81a113b117cd5d38dcd2048dd5c31690076d3b82890abe6ffc"));
+        //assert(consensus.hashGenesisBlock == uint256S("0x000002d625085fced241c3e7c1fccb8985ed61aafd7b572e2423acf27632ed6b"));
+        assert(consensus.hashGenesisBlock == uint256S("0x0000015f49c959686c8e6b2c0c70dc2d0203d0ba08cccd3aeacb498b0d84e9c6"));
+        //assert(genesis.hashMerkleRoot == uint256S("0xb9f9c0419783bd81a113b117cd5d38dcd2048dd5c31690076d3b82890abe6ffc"));
+        assert(genesis.hashMerkleRoot == uint256S("05b236ecb2aee46969e19166f39706850e4d02ccfc6fd1f9962b58888e9e8019"));
+
+                // print hash merkle
+        printf ("e4Coin testnet hashMerkleRoot:% s \ n",
+            genesis.hashMerkleRoot.ToString (). c_str ());
+
+        // print hash genesis
+        printf ("e4Coin testnet hashGenesisBlock: % s \ n",
+            consensus.hashGenesisBlock.ToString (). c_str ());
 
         vFixedSeeds.clear();
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_test, pnSeed6_test + ARRAYLEN(pnSeed6_test));
@@ -638,7 +660,8 @@ public:
         nDefaultPort = 17431;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1579890321, 0, 0x207fffff, 1, 10 * COIN);
+        //genesis = CreateGenesisBlock(1579890321, 0, 0x207fffff, 1, 10 * COIN);
+        genesis = CreateGenesisBlock(1579890321, 333771, 0x1e0ffff0, 1, 10 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
         // calculate regression genesis block
         //consensus.hashGenesisBlock = uint256S("0x00");
@@ -661,8 +684,18 @@ public:
             std::cout << "blockhash: " << genesis.GetHash().ToString().c_str() << "\n";
             std::cout << "merklehash: "  << genesis.hashMerkleRoot.ToString().c_str() << "\n";
         }
-        assert(consensus.hashGenesisBlock == uint256S("0x379defbb2e87c795422233e3ae323b35b907191fb69e09141922d4bd5adcc757"));
-        assert(genesis.hashMerkleRoot == uint256S("0xb9f9c0419783bd81a113b117cd5d38dcd2048dd5c31690076d3b82890abe6ffc"));
+        //assert(consensus.hashGenesisBlock == uint256S("0x379defbb2e87c795422233e3ae323b35b907191fb69e09141922d4bd5adcc757"));
+        assert(consensus.hashGenesisBlock == uint256S("0x0000015f49c959686c8e6b2c0c70dc2d0203d0ba08cccd3aeacb498b0d84e9c6"));
+        //assert(genesis.hashMerkleRoot == uint256S("0xb9f9c0419783bd81a113b117cd5d38dcd2048dd5c31690076d3b82890abe6ffc"));
+        assert(genesis.hashMerkleRoot == uint256S("05b236ecb2aee46969e19166f39706850e4d02ccfc6fd1f9962b58888e9e8019"));
+
+        // print hash merkle
+        printf ("e4Coin dev hashMerkleRoot:% s \ n",
+            genesis.hashMerkleRoot.ToString (). c_str ());
+
+        // print hash genesis
+        printf ("e4Coin dev hashGenesisBlock: % s \ n",
+            consensus.hashGenesisBlock.ToString (). c_str ());
 
         devnetGenesis = FindDevNetGenesisBlock(consensus, genesis, 10 * COIN);
         consensus.hashDevnetGenesisBlock = devnetGenesis.GetHash();
@@ -808,7 +841,8 @@ public:
         nDefaultPort = 27431;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1579890321, 0, 0x207fffff, 1, 10 * COIN);
+        //genesis = CreateGenesisBlock(1579890321, 0, 0x207fffff, 1, 10 * COIN);
+        genesis = CreateGenesisBlock(1579890321, 333771, 0x1e0ffff0, 1, 10 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
         // calculate regression genesis block
         //consensus.hashGenesisBlock = uint256S("0x00");
@@ -831,8 +865,18 @@ public:
             std::cout << "blockhash: " << genesis.GetHash().ToString().c_str() << "\n";
             std::cout << "merklehash: "  << genesis.hashMerkleRoot.ToString().c_str() << "\n";
         }
-        assert(consensus.hashGenesisBlock == uint256S("0x379defbb2e87c795422233e3ae323b35b907191fb69e09141922d4bd5adcc757"));
-        assert(genesis.hashMerkleRoot == uint256S("0xb9f9c0419783bd81a113b117cd5d38dcd2048dd5c31690076d3b82890abe6ffc"));
+        //assert(consensus.hashGenesisBlock == uint256S("0x379defbb2e87c795422233e3ae323b35b907191fb69e09141922d4bd5adcc757"));
+        assert(consensus.hashGenesisBlock == uint256S("0x0000015f49c959686c8e6b2c0c70dc2d0203d0ba08cccd3aeacb498b0d84e9c6"));
+        //assert(genesis.hashMerkleRoot == uint256S("0xb9f9c0419783bd81a113b117cd5d38dcd2048dd5c31690076d3b82890abe6ffc"));
+        assert(genesis.hashMerkleRoot == uint256S("05b236ecb2aee46969e19166f39706850e4d02ccfc6fd1f9962b58888e9e8019"));
+
+        // print hash merkle
+        printf ("e4Coin reg test hashMerkleRoot:% s \ n",
+            genesis.hashMerkleRoot.ToString (). c_str ());
+
+        // print hash genesis
+        printf ("e4Coin reg test hashGenesisBlock: % s \ n",
+            consensus.hashGenesisBlock.ToString (). c_str ());
 
         vFixedSeeds.clear(); //!< Regtest mode doesn't have any fixed seeds.
         vSeeds.clear();      //!< Regtest mode doesn't have any DNS seeds.
