@@ -288,7 +288,7 @@ public:
         nDefaultPort = 7431;
         nPruneAfterHeight = 100000;
 
-        genesis = CreateGenesisBlock(1579890311, 286737, 0x1e0ffff0, 1, 500 * COIN);
+        genesis = CreateGenesisBlock(1579890311, 286737, 0x1e0ffff0, 1, 10 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
         // calculate main genesis block
         //consensus.hashGenesisBlock = uint256S("0x00");
@@ -303,7 +303,7 @@ public:
                 if (genesis.nNonce == 0)
                 {
                     ++genesis.nTime;
-                }
+                }git
             }
             std::cout << "Genesis block found!\n";
             std::cout << "nonce: " << genesis.nNonce << "\n";
@@ -463,7 +463,7 @@ public:
         nDefaultPort = 17431;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1579890316UL, 664525UL, 0x1e0ffff0, 1, 500 * COIN);
+        genesis = CreateGenesisBlock(1579890316UL, 664525UL, 0x1e0ffff0, 1, 10 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
         // calculate testnet genesis block
         //consensus.hashGenesisBlock = uint256S("0x00");
@@ -638,7 +638,7 @@ public:
         nDefaultPort = 17431;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1579890321, 0, 0x207fffff, 1, 500 * COIN);
+        genesis = CreateGenesisBlock(1579890321, 0, 0x207fffff, 1, 10 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
         // calculate regression genesis block
         //consensus.hashGenesisBlock = uint256S("0x00");
@@ -664,7 +664,7 @@ public:
         assert(consensus.hashGenesisBlock == uint256S("0x379defbb2e87c795422233e3ae323b35b907191fb69e09141922d4bd5adcc757"));
         assert(genesis.hashMerkleRoot == uint256S("0xb9f9c0419783bd81a113b117cd5d38dcd2048dd5c31690076d3b82890abe6ffc"));
 
-        devnetGenesis = FindDevNetGenesisBlock(consensus, genesis, 500 * COIN);
+        devnetGenesis = FindDevNetGenesisBlock(consensus, genesis, 10 * COIN);
         consensus.hashDevnetGenesisBlock = devnetGenesis.GetHash();
 
         vFixedSeeds.clear();
@@ -808,7 +808,7 @@ public:
         nDefaultPort = 27431;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1579890321, 0, 0x207fffff, 1, 500 * COIN);
+        genesis = CreateGenesisBlock(1579890321, 0, 0x207fffff, 1, 10 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
         // calculate regression genesis block
         //consensus.hashGenesisBlock = uint256S("0x00");
