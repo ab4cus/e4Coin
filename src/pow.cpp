@@ -13,6 +13,9 @@
 
 #include <math.h>
 
+// Altgotirmos de dificulta para las prueba de trabajo POW
+// TODO : implementar algoritmo MIDAS
+
 unsigned int static KimotoGravityWell(const CBlockIndex* pindexLast, const Consensus::Params& params) {
     const CBlockIndex *BlockLastSolved = pindexLast;
     const CBlockIndex *BlockReading = pindexLast;
