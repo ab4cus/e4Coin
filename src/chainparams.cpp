@@ -319,12 +319,12 @@ public:
         assert(genesis.hashMerkleRoot == uint256S("05b236ecb2aee46969e19166f39706850e4d02ccfc6fd1f9962b58888e9e8019"));
 
         // print hash merkle
-        printf ("e4Coin main hashMerkleRoot:% s \ n",
-            genesis.hashMerkleRoot.ToString (). c_str ());
+        //printf ("e4Coin main hashMerkleRoot:% s \ n",
+        //    genesis.hashMerkleRoot.ToString (). c_str ());
 
         // print hash genesis
-        printf ("e4Coin main hashGenesisBlock: % s \ n",
-            consensus.hashGenesisBlock.ToString (). c_str ());
+        //printf ("e4Coin main hashGenesisBlock: % s \ n",
+        //    consensus.hashGenesisBlock.ToString (). c_str ());
 
         //vSeeds.push_back(CDNSSeedData("e4coin.io", "dnsseed.e4coin.io"));
         //vSeeds.push_back(CDNSSeedData("e4cash.net", "dnsseed.e4cash.net"));
@@ -506,12 +506,12 @@ public:
         assert(genesis.hashMerkleRoot == uint256S("05b236ecb2aee46969e19166f39706850e4d02ccfc6fd1f9962b58888e9e8019"));
 
                 // print hash merkle
-        printf ("e4Coin testnet hashMerkleRoot:% s \ n",
-            genesis.hashMerkleRoot.ToString (). c_str ());
+        //printf ("e4Coin testnet hashMerkleRoot:% s \ n",
+        //    genesis.hashMerkleRoot.ToString (). c_str ());
 
         // print hash genesis
-        printf ("e4Coin testnet hashGenesisBlock: % s \ n",
-            consensus.hashGenesisBlock.ToString (). c_str ());
+        //printf ("e4Coin testnet hashGenesisBlock: % s \ n",
+        //    consensus.hashGenesisBlock.ToString (). c_str ());
 
         vFixedSeeds.clear();
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_test, pnSeed6_test + ARRAYLEN(pnSeed6_test));
@@ -693,12 +693,12 @@ public:
         assert(genesis.hashMerkleRoot == uint256S("05b236ecb2aee46969e19166f39706850e4d02ccfc6fd1f9962b58888e9e8019"));
 
         // print hash merkle
-        printf ("e4Coin dev hashMerkleRoot:% s \ n",
-            genesis.hashMerkleRoot.ToString (). c_str ());
+        //printf ("e4Coin dev hashMerkleRoot:% s \ n",
+        //    genesis.hashMerkleRoot.ToString (). c_str ());
 
         // print hash genesis
-        printf ("e4Coin dev hashGenesisBlock: % s \ n",
-            consensus.hashGenesisBlock.ToString (). c_str ());
+        //printf ("e4Coin dev hashGenesisBlock: % s \ n",
+        //    consensus.hashGenesisBlock.ToString (). c_str ());
 
         devnetGenesis = FindDevNetGenesisBlock(consensus, genesis, 10 * COIN);
         consensus.hashDevnetGenesisBlock = devnetGenesis.GetHash();
@@ -874,12 +874,12 @@ public:
         assert(genesis.hashMerkleRoot == uint256S("05b236ecb2aee46969e19166f39706850e4d02ccfc6fd1f9962b58888e9e8019"));
 
         // print hash merkle
-        printf ("e4Coin reg test hashMerkleRoot:% s \ n",
-            genesis.hashMerkleRoot.ToString (). c_str ());
+        //printf ("e4Coin reg test hashMerkleRoot:% s \ n",
+        //    genesis.hashMerkleRoot.ToString (). c_str ());
 
         // print hash genesis
-        printf ("e4Coin reg test hashGenesisBlock: % s \ n",
-            consensus.hashGenesisBlock.ToString (). c_str ());
+        //printf ("e4Coin reg test hashGenesisBlock: % s \ n",
+        //    consensus.hashGenesisBlock.ToString (). c_str ());
 
         vFixedSeeds.clear(); //!< Regtest mode doesn't have any fixed seeds.
         vSeeds.clear();      //!< Regtest mode doesn't have any DNS seeds.
