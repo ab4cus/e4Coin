@@ -305,7 +305,7 @@ public:
                 if (genesis.nNonce == 0)
                 {
                     ++genesis.nTime;
-                }git
+                }
             }
             std::cout << "Genesis block found!\n";
             std::cout << "nonce: " << genesis.nNonce << "\n";
