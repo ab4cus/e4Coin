@@ -12,8 +12,8 @@ When a "Transaction Lock" occurs the hash of the related transaction is broadcas
 * `zmqpubhashtxlock`: publishes the transaction hash when locked via InstantSend
 
 This mechanism has been integrated into Bitcore-Node-e4Coin which allows for notification to be broadcast through Insight API in one of two ways:
-* WebSocket: [https://github.com/e4coinpay/insight-api-e4coin#web-socket-api](https://github.com/e4coinpay/insight-api-e4coin#web-socket-api)
-* API: [https://github.com/e4coinpay/insight-api-e4coin#instantsend-transactions](https://github.com/e4coinpay/insight-api-e4coin#instantsend-transactions)
+* WebSocket: [https://github.com/e4cash/insight-api-e4coin#web-socket-api](https://github.com/e4cash/insight-api-e4coin#web-socket-api)
+* API: [https://github.com/e4cash/insight-api-e4coin#instantsend-transactions](https://github.com/e4cash/insight-api-e4coin#instantsend-transactions)
 
 #### Command line option
 

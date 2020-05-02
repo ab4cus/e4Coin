@@ -2,7 +2,7 @@
 
 This issue tracker is only for technical issues related to e4Coin Core.
 
-General e4Coin questions and/or support requests and are best directed to the [e4Coinpay Reddit](https://www.reddit.com/r/e4coinpay/).
+General e4Coin questions and/or support requests and are best directed to the [e4cash Reddit](https://www.reddit.com/r/e4cash/).
 
 To report critical security issues, email infosec@e4coin.org and/or see the E4CN bug bounty program on [Bugcrowd](https://bugcrowd.com/e4coindigitalcash) instead of creating Github issues.
 

@@ -4,7 +4,7 @@ run using Python 3 but are compatible with Python 2.
 
 ## Step 0: Install e4coin_hash
 
-https://github.com/e4coinpay/e4coin_hash
+https://github.com/e4cash/e4coin_hash
 
 ## Step 1: Download hash list
 

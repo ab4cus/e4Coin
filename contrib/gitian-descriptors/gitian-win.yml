@@ -25,7 +25,7 @@ packages:
 - "python3"
 - "rename"
 remotes:
-- "url": "https://github.com/e4coinpay/e4coin.git"
+- "url": "https://github.com/e4cash/e4coin.git"
   "dir": "e4coin"
 files: []
 script: |

@@ -46,7 +46,7 @@
       <key>CFBundleTypeRole</key>
       <string>Editor</string>
       <key>CFBundleURLName</key>
-      <string>org.e4coin.e4CoinPayment</string>
+      <string>org.e4coin.e4cashment</string>
       <key>CFBundleURLSchemes</key>
       <array>
         <string>e4coin</string>
@@ -71,7 +71,7 @@
         <string>application/x-e4coin-payment-request</string>
         <key>public.filename-extension</key>
         <array>
-          <string>e4coinpaymentrequest</string>
+          <string>e4cashmentrequest</string>
         </array>
       </dict>
     </dict>

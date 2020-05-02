@@ -27,8 +27,8 @@ Build-Depends: debhelper,
  libzmq3-dev
 Standards-Version: 3.9.2
 Homepage: https://www.e4coin.org/
-Vcs-Git: git://github.com/e4coinpay/e4coin.git
-Vcs-Browser: https://github.com/e4coinpay/e4coin
+Vcs-Git: git://github.com/e4cash/e4coin.git
+Vcs-Browser: https://github.com/e4cash/e4coin
 
 Package: e4coind
 Architecture: any

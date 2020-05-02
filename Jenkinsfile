@@ -49,20 +49,20 @@ for(int i = 0; i < targets.size(); i++) {
           // restore cache
           def hasCache = false
           try {
-            copyArtifacts(projectName: "e4coinpay-e4coin/${BRANCH_NAME}", optional: true, selector: lastSuccessful(), filter: "ci-cache-${target}.tar.gz")
+            copyArtifacts(projectName: "e4cash-e4coin/${BRANCH_NAME}", optional: true, selector: lastSuccessful(), filter: "ci-cache-${target}.tar.gz")
           } catch (Exception e) {
           }
           if (fileExists("ci-cache-${target}.tar.gz")) {
             hasCache = true
-            echo "Using cache from e4coinpay-e4coin/${BRANCH_NAME}"
+            echo "Using cache from e4cash-e4coin/${BRANCH_NAME}"
           } else {
             try {
-              copyArtifacts(projectName: 'e4coinpay-e4coin/develop', optional: true, selector: lastSuccessful(), filter: "ci-cache-${target}.tar.gz");
+              copyArtifacts(projectName: 'e4cash-e4coin/develop', optional: true, selector: lastSuccessful(), filter: "ci-cache-${target}.tar.gz");
             } catch (Exception e) {
             }
             if (fileExists("ci-cache-${target}.tar.gz")) {
               hasCache = true
-              echo "Using cache from e4coinpay-e4coin/develop"
+              echo "Using cache from e4cash-e4coin/develop"
             }
           }
 

@@ -30,7 +30,7 @@ packages:
 - "python3-setuptools"
 - "fonts-tuffy"
 remotes:
-- "url": "https://github.com/e4coinpay/e4coin.git"
+- "url": "https://github.com/e4cash/e4coin.git"
   "dir": "e4coin"
 files:
 - "MacOSX10.11.sdk.tar.gz"
