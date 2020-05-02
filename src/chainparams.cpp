@@ -78,7 +78,7 @@ static CBlock CreateDevNetGenesisBlock(const uint256 &prevBlockHash, const std::
  */
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "The Times 14/Feb/2019 JPMorgan Chase Moves to Be First Big U.S. Bank With Its Own Cryptocurrency";
+    const char* pszTimestamp = "The Times 14/Feb/2019 JPMorgan Chase Moves to Be First Big U.S. Bank With Its Own Crypto";
     const CScript genesisOutputScript = CScript() << ParseHex("04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
@@ -225,7 +225,7 @@ public:
         consensus.DIP0003EnforcementHash = uint256();
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~uint256(0) >> 20
         consensus.nPowTargetTimespan = 24 * 60 * 60; // e4Coin: 1 dia
-        consensus.nPowTargetSpacing = 0.8 * 60; // e4Coin : 0.8 minutos (48 segundos)
+        consensus.nPowTargetSpacing = 1 * 60; // e4Coin : 0.8 minutos (48 segundos)
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
         consensus.nPowKGWHeight = 1;
@@ -271,9 +271,10 @@ public:
 
         // The best chain should have at least this much work.
         consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000100010"); 
+        //consensus.nMinimumChainWork = uint256S("0x00");
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x5f994eda65b1912e8aa5de5fbe09a483a76d4f305c92f86d41fca46a2c8516ab"); 
+        consensus.defaultAssumeValid = uint256S("0x0000088ff8aac3baf11bca61b2569dd0918f61c249f5c7d87b67b53dceaec234"); 
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -288,16 +289,23 @@ public:
         nDefaultPort = 7431;
         nPruneAfterHeight = 100000;
 
-        genesis = CreateGenesisBlock(1579890311, 286737, 0x1e0ffff0, 1, 500 * COIN);
+        //genesis = CreateGenesisBlock(1579890311, 286737, 0x1e0ffff0, 1, 500 * COIN);
+        genesis = CreateGenesisBlock(1579890311, 256522, 0x1e0ffff0, 1, 500 * COIN);
         //genesis = CreateGenesisBlock(1579890321, 1756858, 0x1e0ffff0, 1, 500 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
         // calculate main genesis block
         //consensus.hashGenesisBlock = uint256S("0x00");
+        //consensus.hashGenesisBlock = uint256S("0x0000088ff8aac3baf11bca61b2569dd0918f61c249f5c7d87b67b53dceaec234");
         if (true && (genesis.GetHash() != consensus.hashGenesisBlock)) {
 		std::cout << std::string("Calculating main genesis block...\n");
             arith_uint256 hashTarget = arith_uint256().SetCompact(genesis.nBits);
             uint256 hash;
             genesis.nNonce = 0;
+
+            //printf("recalculating params for mainnet.\n");
+            //printf("old mainnet genesis nonce: %s\n", genesis.nNonce.ToString().c_str());
+            //printf("old mainnet genesis hash:  %s\n", consensus.hashGenesisBlock.ToString().c_str());
+
             while (UintToArith256(genesis.GetHash()) > hashTarget)
             {
                 ++genesis.nNonce;
@@ -321,8 +329,8 @@ public:
         //printf ("e4Coin main hashMerkleRoot: %s\n",
         //    genesis.hashMerkleRoot.ToString ().c_str());
 
-        assert(consensus.hashGenesisBlock == uint256S("0x5f994eda65b1912e8aa5de5fbe09a483a76d4f305c92f86d41fca46a2c8516ab"));
-        assert(genesis.hashMerkleRoot == uint256S("7927db5ab38c08b68bee859e66cf03b71fc60fcfe3f58c2205b3683340f6d38e"));
+        assert(consensus.hashGenesisBlock == uint256S("0x0000088ff8aac3baf11bca61b2569dd0918f61c249f5c7d87b67b53dceaec234"));
+        assert(genesis.hashMerkleRoot == uint256S("f714374caab0d180aee7e758141e5e37afa376355160f0ddddffb1e229434297"));
 
         //vSeeds.push_back(CDNSSeedData("e4coin.io", "dnsseed.e4coin.io"));
         //vSeeds.push_back(CDNSSeedData("e4cash.net", "dnsseed.e4cash.net"));
@@ -364,8 +372,10 @@ public:
         fBIP9CheckMasternodesUpgraded = true;
 
         checkpointData = (CCheckpointData) {
+            //{{},}
             boost::assign::map_list_of
-            (  0, uint256S("0x5f994eda65b1912e8aa5de5fbe09a483a76d4f305c92f86d41fca46a2c8516ab"))
+            //(  0, uint256S("0x0000088ff8aac3baf11bca61b2569dd0918f61c249f5c7d87b67b53dceaec234"))
+            (  0, uint256S("0x001"))
         };
 
         chainTxData = ChainTxData{
@@ -412,7 +422,7 @@ public:
         consensus.DIP0003EnforcementHash = uint256();
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~uint256(0) >> 20
         consensus.nPowTargetTimespan = 24 * 60 * 60; // e4Coin: 1 dia
-        consensus.nPowTargetSpacing = 0.8 * 60; // e4Coin : 0.8 minutos (48 segundos)
+        consensus.nPowTargetSpacing = 1 * 60; // e4Coin : 0.8 minutos (48 segundos)
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = false;
         consensus.nPowKGWHeight = 1; // nPowKGWHeight >= nPowDGWHeight means "no KGW"
@@ -457,10 +467,11 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nThreshold = 2; 
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000100010"); 
+        //consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000100010"); 
+        consensus.nMinimumChainWork = uint256S("0x00");
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x4170429bb257f59cb0e6ac0fcae101feddcd9819a863c02e2a864c113c589167"); 
+        consensus.defaultAssumeValid = uint256S("0x00000d5e66d2e77cb0bbcbd592ee16cee9c845575e1bbc0f76cff36d5af6f984"); 
 
         pchMessageStart[0] = 0x45;
         pchMessageStart[1] = 0x34;
@@ -470,7 +481,7 @@ public:
         nDefaultPort = 17431;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1579890316UL, 664525UL, 0x1e0ffff0, 1, 500 * COIN);
+        genesis = CreateGenesisBlock(1579890316UL, 1376714, 0x1e0ffff0, 1, 500 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
         // calculate testnet genesis block
         //consensus.hashGenesisBlock = uint256S("0x00");
@@ -502,8 +513,8 @@ public:
         //printf ("e4Coin test net hashMerkleRoot: %s\n",
         //    genesis.hashMerkleRoot.ToString ().c_str());
 
-        assert(consensus.hashGenesisBlock == uint256S("0x4170429bb257f59cb0e6ac0fcae101feddcd9819a863c02e2a864c113c589167"));
-        assert(genesis.hashMerkleRoot == uint256S("7927db5ab38c08b68bee859e66cf03b71fc60fcfe3f58c2205b3683340f6d38e"));
+        assert(consensus.hashGenesisBlock == uint256S("0x00000d5e66d2e77cb0bbcbd592ee16cee9c845575e1bbc0f76cff36d5af6f984"));
+        assert(genesis.hashMerkleRoot == uint256S("f714374caab0d180aee7e758141e5e37afa376355160f0ddddffb1e229434297"));
 
         vFixedSeeds.clear();
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_test, pnSeed6_test + ARRAYLEN(pnSeed6_test));
@@ -547,7 +558,8 @@ public:
 
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
-            (    0, uint256S("0x4170429bb257f59cb0e6ac0fcae101feddcd9819a863c02e2a864c113c589167"))
+            //(    0, uint256S("0x00000d5e66d2e77cb0bbcbd592ee16cee9c845575e1bbc0f76cff36d5af6f984"))
+            (  0, uint256S("0x001"))
         };
 
         chainTxData = ChainTxData{
@@ -594,7 +606,7 @@ public:
         consensus.DIP0003EnforcementHash = uint256();
         consensus.powLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~uint256(0) >> 1
         consensus.nPowTargetTimespan = 24 * 60 * 60; // e4Coin: 1 dia
-        consensus.nPowTargetSpacing = 0.8 * 60; // e4Coin : 0.8 minutos (48 segundos)
+        consensus.nPowTargetSpacing = 1 * 60; // e4Coin : 0.8 minutos (48 segundos)
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = false;
         consensus.nPowKGWHeight = 4001; // nPowKGWHeight >= nPowDGWHeight means "no KGW"
@@ -639,7 +651,8 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nThreshold = 2; 
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x000000000000000000000000000000000000000000000000000000000000000");
+        //consensus.nMinimumChainWork = uint256S("0x000000000000000000000000000000000000000000000000000000000000000");
+        consensus.nMinimumChainWork = uint256S("0x00");
 
         // By default assume that the signatures in ancestors of this block are valid.
         consensus.defaultAssumeValid = uint256S("0x000000000000000000000000000000000000000000000000000000000000000");
@@ -675,8 +688,8 @@ public:
             std::cout << "blockhash: " << genesis.GetHash().ToString().c_str() << "\n";
             std::cout << "merklehash: "  << genesis.hashMerkleRoot.ToString().c_str() << "\n";
         }
-        assert(consensus.hashGenesisBlock == uint256S("0x4491af15b4103e4ba946741c16fa75a843c7028c941b7f52ab20e9e5a1eb8f80"));
-        assert(genesis.hashMerkleRoot == uint256S("7927db5ab38c08b68bee859e66cf03b71fc60fcfe3f58c2205b3683340f6d38e"));
+        assert(consensus.hashGenesisBlock == uint256S("0xb6df22a01047eee7edfe7dfe44e758e090d20df141842c7f320f79e6189baac0"));
+        assert(genesis.hashMerkleRoot == uint256S("f714374caab0d180aee7e758141e5e37afa376355160f0ddddffb1e229434297"));
 
         devnetGenesis = FindDevNetGenesisBlock(consensus, genesis, 500 * COIN);
         consensus.hashDevnetGenesisBlock = devnetGenesis.GetHash();
@@ -722,7 +735,7 @@ public:
 
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
-            (      0, uint256S("0x4491af15b4103e4ba946741c16fa75a843c7028c941b7f52ab20e9e5a1eb8f80"))
+            (      0, uint256S("0xb6df22a01047eee7edfe7dfe44e758e090d20df141842c7f320f79e6189baac0"))
             (      1, devnetGenesis.GetHash())
         };
 
@@ -781,7 +794,7 @@ public:
         consensus.DIP0003EnforcementHash = uint256();
         consensus.powLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~uint256(0) >> 1
         consensus.nPowTargetTimespan = 24 * 60 * 60; // e4Coin: 1 dia
-        consensus.nPowTargetSpacing = 0.8 * 60; // e4Coin : 0.8 minutos (48 segundos)
+        consensus.nPowTargetSpacing = 1 * 60; // e4Coin : 0.8 minutos (48 segundos)
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = true;
         consensus.nPowKGWHeight = 1; // same as mainnet
@@ -808,6 +821,7 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nTimeout = 999999999999ULL;
 
         // The best chain should have at least this much work.
+        //consensus.nMinimumChainWork = uint256S("0x00");
         consensus.nMinimumChainWork = uint256S("0x00");
 
         // By default assume that the signatures in ancestors of this block are valid.
@@ -845,15 +859,15 @@ public:
         }
 
         // print hash genesis
-        // printf ("e4Coin regtest net hashGenesisBlock: %s\n",
+        //printf ("e4Coin regtest net hashGenesisBlock: %s\n",
         //    consensus.hashGenesisBlock.ToString().c_str());
 
         // print hash merkle
         //printf ("e4Coin regtest net hashMerkleRoot: %s\n",
         //    genesis.hashMerkleRoot.ToString ().c_str());
 
-        assert(consensus.hashGenesisBlock == uint256S("0x4491af15b4103e4ba946741c16fa75a843c7028c941b7f52ab20e9e5a1eb8f80"));
-        assert(genesis.hashMerkleRoot == uint256S("7927db5ab38c08b68bee859e66cf03b71fc60fcfe3f58c2205b3683340f6d38e"));
+        assert(consensus.hashGenesisBlock == uint256S("0xb6df22a01047eee7edfe7dfe44e758e090d20df141842c7f320f79e6189baac0"));
+        assert(genesis.hashMerkleRoot == uint256S("f714374caab0d180aee7e758141e5e37afa376355160f0ddddffb1e229434297"));
 
         vFixedSeeds.clear(); //!< Regtest mode doesn't have any fixed seeds.
         vSeeds.clear();      //!< Regtest mode doesn't have any DNS seeds.
@@ -876,7 +890,8 @@ public:
 
         checkpointData = (CCheckpointData){
             boost::assign::map_list_of
-            ( 0, uint256S("0x4491af15b4103e4ba946741c16fa75a843c7028c941b7f52ab20e9e5a1eb8f80"))
+            //( 0, uint256S("0xb6df22a01047eee7edfe7dfe44e758e090d20df141842c7f320f79e6189baac0"))
+            (  0, uint256S("0x001"))
         };
 
         chainTxData = ChainTxData{
