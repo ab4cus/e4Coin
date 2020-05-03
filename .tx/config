@@ -1,0 +1,7 @@
+[main]
+host = https://www.transifex.com
+
+[e4coin.qt-translation-012x]
+file_filter = src/qt/locale/e4coin_<lang>.ts
+source_file = src/qt/locale/e4coin_en.ts
+source_lang = en

@@ -1,0 +1,6 @@
+usr/local/bin/e4coin-qt usr/bin
+share/pixmaps/e4coin32.xpm usr/share/pixmaps
+share/pixmaps/e4coin16.xpm usr/share/pixmaps
+share/pixmaps/e4coin128.png usr/share/pixmaps
+debian/e4coin-qt.desktop usr/share/applications
+debian/e4coin-qt.protocol usr/share/kde4/services/
