@@ -916,7 +916,7 @@ QString getThemeName()
     if(!theme.isEmpty()){
         return theme;
     }
-    return QString("light");  
+    return QString("e4cash-light");
 }
 
 // Open CSS when configured

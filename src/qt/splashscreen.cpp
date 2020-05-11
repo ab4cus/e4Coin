@@ -53,11 +53,11 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle *networkStyle) 
     // networkstyle.cpp can't (yet) read themes, so we do it here to get the correct Splash-screen
     QString splashScreenPath = ":/images/" + GUIUtil::getThemeName() + "/splash";
     if(GetBoolArg("-regtest", false))
-        splashScreenPath = ":/images/" + GUIUtil::getThemeName() + "/splash_testnet";
+        splashScreenPath = ":/images/" + GUIUtil::getThemeName() + "/splash_regnet";
     if(GetBoolArg("-testnet", false))
         splashScreenPath = ":/images/" + GUIUtil::getThemeName() + "/splash_testnet";
     if(IsArgSet("-devnet"))
-        splashScreenPath = ":/images/" + GUIUtil::getThemeName() + "/splash_testnet";
+        splashScreenPath = ":/images/" + GUIUtil::getThemeName() + "/splash_devnet";
 
     QString font = QApplication::font().toString();
 
